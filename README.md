@@ -9,7 +9,7 @@ I approached this problem by first thinking about it as a permutation with repet
 First, I wrote out the possible permutations for n=0 through n=7, being able to take either 1 or 2 steps at once.
 
 
-### Using n=7:
+## Using n=7:
 
 With 7 stairs (n=7), and being able to take either 1 or 2 steps at once, there are 21 permutations.  I realized that these 21 options can be divided into 4 groups:
 
@@ -54,3 +54,12 @@ This summation is equal to:
 where F[n] is the nth Fibonacci number, and L[n] is the nth Lucas number.
 
 Knowing this, and thinking about the problem more intuitively, I realized I could code this problem very similarly to how a Fibonacci generator would be written.  Like the Fibonacci problem, recursion can be used, but it is faster to use memoization (dynamic programming).  Since the result is a sum of all the preceding results, you can iterate through n and save prior results with memoization.
+
+
+## To Run
+
+These files can be run with Python 3 from the command line.
+
+Running test_nth_step.py will test both nth_step.py (for the 1-2 step problem and the 1-2-3 step version of this problem) and nth_step_math.py (for the 1-2 step problem), and your output will be written to the text file nth_step_output.txt.
+
+nth_step.py uses the DP method discussed, while nth_step_math.py uses the factorial permutation formula discussed.
