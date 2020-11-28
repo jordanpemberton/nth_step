@@ -12,11 +12,19 @@ def nth_step(n, m=2):
     method very similar to that used to
     find Fibonacci numbers.
     """
-    temp = 0
+    curr = 0
     memo = {0: 1}
     for i in range(1, n+1):
+        # If remaining stairs > step size
         if (i > m):
-            temp -= memo[i - m - 1]
-        temp += memo[i - 1]
-        memo[i] = temp
+            curr -= memo[i - m - 1]
+        curr += memo[i - 1]
+        # Save:
+        memo[i] = curr
     return memo[n]
+
+
+if __name__ == '__main__':
+    m = 3
+    for i in range(10):
+        print(i, nth_step(i, m))
