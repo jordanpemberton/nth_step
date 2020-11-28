@@ -9,17 +9,33 @@ class TestNthStep(unittest.TestCase):
     pass
 
 
-def create_test_case(data, func):
+def clear_outfile(out_src):
+    outfile = open(out_src, 'w')
+    outfile.write('')
+
+
+def write_output(inp, out, exp, out_src):
+    # Append to end of out file:
+    outfile = open(out_src, 'a')
+    outfile.write('input: ' + str(inp) + ',  ')
+    outfile.write('output: ' + str(out) + ',  ')
+    outfile.write('expected: ' + str(exp) + '\n')
+    outfile.close()
+
+
+def create_test_case(data, func, outfile=''):
     def test(self):
         inp, exp = data
-        actual = func(*inp)     # expand input
-        self.assertEqual(actual, exp)
+        out = func(*inp)     # expand input
+        # Output to text file:
+        write_output(inp, out, exp, outfile)
+        self.assertEqual(out, exp)
     return test
 
 
-def make_tests(data, func):
+def make_tests(data, func, outfile=''):
     for k, pair in enumerate(data):
-        test = create_test_case(pair, func)
+        test = create_test_case(pair, func, outfile)
         test.__name__ = 'test_' + str(func.__name__) + str(k)
         setattr(TestNthStep, test.__name__, test)
 
@@ -40,6 +56,9 @@ if __name__ == '__main__':
             ([9, 2], 55)
            ]
 
-    make_tests(data, nth_step)
+    # Clear the output file:
+    clear_outfile('nth_step_output.txt')
+
+    make_tests(data, nth_step, 'nth_step_output.txt')
 
     unittest.main()
