@@ -56,7 +56,7 @@ where F[n] is the nth Fibonacci number, and L[n] is the nth Lucas number.
 Knowing this, and thinking about the problem more intuitively, I realized I could code this problem very similarly to how a Fibonacci generator would be written.  Like the Fibonacci problem, recursion can be used, but it is faster to use memoization (dynamic programming).  Since the result is a sum of all the preceding results, you can iterate through n and save prior results with memoization.
 
 
-## To Run
+## To Run:
 
 These files can be run with Python 3 from the command line.
 
