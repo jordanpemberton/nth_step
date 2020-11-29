@@ -84,3 +84,8 @@ or, using a default version, simply
 Running `test_nth_step.py` will run tests for `nth_step.py` (for both the 1-2 step problem and the 1-2-3 step problem) and `nth_step_math.py` (for only the 1-2 step problem), and your output will be written to the text file `nth_step_output.txt`.
 
 `nth_step.py` uses the DP method discussed, while `nth_step_math.py` uses the factorial permutation formula discussed.
+
+
+## Write-Up
+
+![Nth Step WriteUp](/pembertj_nth_step.pdf)
