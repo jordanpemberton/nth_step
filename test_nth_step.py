@@ -18,18 +18,27 @@ class TestNthStep(unittest.TestCase):
 
 
 def clear_outfile(out_src):
+    """
+    Clear the given file by overwriting.
+    """
     outfile = open(out_src, 'w')
     outfile.write('')
     outfile.close()
 
 
 def write_header(out_src, header):
+    """
+    Append a given line to the passed file.
+    """
     outfile = open(out_src, 'a')
     outfile.write('\n' + header + '\n')
     outfile.close()
 
 
 def write_output(inp, out, exp, out_src):
+    """
+    Append a inp, out, and exp line to out file.
+    """
     # Append to end of out file:
     outfile = open(out_src, 'a')
     outfile.write('input: ' + str(inp) + ',  ')
@@ -39,6 +48,9 @@ def write_output(inp, out, exp, out_src):
 
 
 def create_test_case(data, func, outfile=''):
+    """
+    Returns a test case function.
+    """
     def test(self):
         inp, exp = data
         out = func(*inp)     # expand input
@@ -50,9 +62,14 @@ def create_test_case(data, func, outfile=''):
 
 
 def make_tests(data, func, outfile=''):
+    """
+    For each data, create a test case and add
+    it as attribute to the TestNthStep class.
+    """
     for pair in data:
         test = create_test_case(pair, func, outfile)
-        test.__name__ = 'test_' + str(func.__name__) + str(pair)
+        test_number = str(pair[0][0]).zfill(3) + str(pair[0][1]).zfill(3)
+        test.__name__ = 'test_' + str(func.__name__) + test_number
         setattr(TestNthStep, test.__name__, test)
 
 
@@ -69,7 +86,8 @@ if __name__ == '__main__':
             ([6, 2], 13),
             ([7, 2], 21),
             ([8, 2], 34),
-            ([9, 2], 55)
+            ([9, 2], 55),
+            ([10, 2], 89)
            ]
 
     data2 = [
@@ -82,7 +100,8 @@ if __name__ == '__main__':
             ([6, 3], 24),
             ([7, 3], 44),
             ([8, 3], 81),
-            ([9, 3], 149)
+            ([9, 3], 149),
+            ([10, 3], 274)
            ]
 
     # Output file:
@@ -91,6 +110,7 @@ if __name__ == '__main__':
     # Clear the output file:
     clear_outfile(outfile_str)
 
+    # Make tests:
     make_tests(data, nth_step, outfile_str)
     make_tests(data, nth_step_math, outfile_str)
     make_tests(data2, nth_step, outfile_str)

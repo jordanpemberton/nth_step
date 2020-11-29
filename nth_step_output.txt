@@ -18,6 +18,8 @@ input: [8, 2],  output: 34,  expected: 34
 input: [8, 3],  output: 81,  expected: 81
 input: [9, 2],  output: 55,  expected: 55
 input: [9, 3],  output: 149,  expected: 149
+input: [10, 2],  output: 89,  expected: 89
+input: [10, 3],  output: 274,  expected: 274
 input: [0, 2],  output: 1.0,  expected: 1
 input: [1, 2],  output: 1.0,  expected: 1
 input: [2, 2],  output: 2.0,  expected: 2
@@ -28,3 +30,4 @@ input: [6, 2],  output: 13.0,  expected: 13
 input: [7, 2],  output: 21.0,  expected: 21
 input: [8, 2],  output: 34.0,  expected: 34
 input: [9, 2],  output: 55.0,  expected: 55
+input: [10, 2],  output: 89.0,  expected: 89

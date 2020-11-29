@@ -25,6 +25,15 @@ def nth_step(n, m=2):
 
 
 if __name__ == '__main__':
+    # m = 2
+    print('1 or 2 steps allowed, 1 to 10 stairs:')
+    for i in range(10):
+        print(i + 1, ': ', nth_step(i + 1))
+
+    print()
+
+    # m = 3
+    print('1, 2, or 3 steps allowed, 1 to 10 stairs:')
     m = 3
     for i in range(10):
-        print(i, nth_step(i, m))
+        print(i + 1, ': ', nth_step(i + 1, m))
