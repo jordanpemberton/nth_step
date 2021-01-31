@@ -70,15 +70,15 @@ These files can be run in Python 3 or Python 2.
 
 Run files `nth_step.py`, `nth_step_math.py`, `test_nth_step.py` via the command line however you normally run Python files, i.e.
 
-    python3 sudoku.py
+    python3 nth_step.py
 
 or, if on Windows,
 
-    py -3 sudoku.py
+    py -3 nth_step.py
 
 or, using a default version, simply
 
-    python sudoku.py
+    python nth_step.py
 
 
 Running `test_nth_step.py` will run tests for `nth_step.py` (for both the 1-2 step problem and the 1-2-3 step problem) and `nth_step_math.py` (for only the 1-2 step problem), and your output will be written to the text file `nth_step_output.txt`.
